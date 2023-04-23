@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lista Suspensa com Pandas</title>
+</head>
+<body>
+
+	<label for="opcoes">Selecione uma opção:</label>
+
+	<select id="opcoes" name="opcoes">
+	{% for option in options %}
+		<option value="{{ option }}">{{ option }}</option>
+	{% endfor %}
+	</select>
+
+</body>
+</html>

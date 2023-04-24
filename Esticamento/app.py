@@ -12,8 +12,6 @@ csrf = CSRFProtect(app)
 
 df = pd.read_csv('Esticamento/data/Dados_Cabos.csv')
 
-class MyForm(FlaskForm):
-    input_field = StringField('Campo de texto',validators=[DataRequired()])
 
 @app.route('/')
 def index():
@@ -23,17 +21,11 @@ def index():
     # Renderizando o template HTML e passando a lista suspensa como contexto
     return render_template('index.html', options=options,app_version=app_version)
 
-@app.route('/result', methods=['POST'])
-def result():
-    selected_option = request.form.get('select')
-    filtred_df = df[df['Tag'] == selected_option]
-    return render_template('result.html',table=filtred_df.to_html())
 
-
-# @app.route('/outra_pagina')
-# def outra_pagina():   
-#     return render_template('index_copy.html',app_version=app_version)
-
+@app.route('/processar', methods=['POST'])
+def processar():
+    opcao_selecionada = request.form['opcoes']
+    return f'Opção selecionada: {opcao_selecionada}'
 
 
 
@@ -53,13 +45,6 @@ def processar_formulario():
         return render_template('index_copy.html',text_field=text_field,app_version=app_version)
     
     return render_template('index_copy.html',app_version=app_version)
-
-
-@app.route('/form', methods=['GET','POST'])
-def form():
-    if request.method == 'POST':
-        print(request.form)
-    return render_template('form.html')
 
 
 if __name__ == '__main__':

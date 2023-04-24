@@ -8,20 +8,29 @@
             padding: 20px;
         }
     </style>
+    <!-- <script>
+		function exibirMensagem() {
+			document.getElementById("mensagem").innerHTML = "Hello World";
+		}
+	</script> -->
 </head>
 <body>
     <div class="container">
         <h1>Calculadora de esticamento</h1>
         <p> Selecione o cabo </p>
         
-        <label for="opcoes">Selecione uma opção:</label>
+        <!-- <form action="{{ url_for('processar') }}" method="POST"> -->
+            <label for="opcoes">Selecione uma opção:</label>
 
-        <select id="opcoes" name="opcoes">
-        {% for option in options %}
-            <option value="{{ option }}">{{ option }}</option>
-        {% endfor %}
-        </select>
-        <input type="submit" value="Enviar">
+            <select id="opcoes" name="opcoes">
+            {% for option in options %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+            </select>
+
+            <input type="submit" value="Enviar">
+        <!-- </form> -->
+      
         <br><br>
         <a href="{{ url_for('processar_formulario') }}"><button type="button">Ir para outra página</button></a>
     </div>

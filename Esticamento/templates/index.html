@@ -1,17 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 	<title>Lista Suspensa com Pandas</title>
+    <style>
+        .container{
+            border: 1px solid black;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Calculadora de esticamento</h1>
+        <p> Selecione o cabo </p>
+        
+        <label for="opcoes">Selecione uma opção:</label>
 
-	<label for="opcoes">Selecione uma opção:</label>
-
-	<select id="opcoes" name="opcoes">
-	{% for option in options %}
-		<option value="{{ option }}">{{ option }}</option>
-	{% endfor %}
-	</select>
-
+        <select id="opcoes" name="opcoes">
+        {% for option in options %}
+            <option value="{{ option }}">{{ option }}</option>
+        {% endfor %}
+        </select>
+        <input type="submit" value="Enviar">
+        <br><br>
+        <a href="{{ url_for('processar_formulario') }}"><button type="button">Ir para outra página</button></a>
+    </div>
+    
+    <footer>
+        <hr>
+        <p> Versão {{app_version}}</p>
+    </footer>
 </body>
 </html>

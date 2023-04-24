@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Lista Suspensa com Pandas</title>
+    <style>
+        .container{
+            border: 1px solid black;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de esticamento</h1>
+        <p> Selecione o cabo </p>
+        <form method="post">
+            <label for="select_field">Selecione uma opção:</label>
+            <select name="select_field" id="select_field">
+              <option value="option_1">Opção 1</option>
+              <option value="option_2">Opção 2</option>
+              <option value="option_3">Opção 3</option>
+            </select>
+            <br>
+            <label for="text_field">Campo de texto:</label>
+            <input type="text" name="text_field" id="text_field" readonly>
+            <br>
+            <input type="submit" value="Enviar">
+        </form>
+        {% if text_field_value %}
+        <p>{{ text_field_value }}</p>
+        {% endif %}
+        <a href="/"><button type="button">ir para Home</button></a>
+    </div>
+    
+    <footer>
+        <hr>
+        <p> Versão {{app_version}}</p>
+    </footer>
+</body>
+</html>
